@@ -6,7 +6,6 @@ pipeline {
                 git  branch: 'main', credentialsId: 'PAT', url: 'https://github.com/sehun013/springboot_testcode.git'
             }
         }
-
         stage('Gradle Junit Test') {
             steps {
                 sh 'chmod +x ./gradlew'
@@ -28,7 +27,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv() {
-                        sh "./gradlew sonarqube
+                        sh "./gradlew sonarqube"
                     }
                 }
             }
