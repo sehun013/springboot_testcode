@@ -6,10 +6,9 @@ pipeline {
                 git  branch: 'main', credentialsId: 'PAT', url: 'https://github.com/sehun013/springboot_testcode.git'
             }
         }
-        stage('Gradle Junit Test') {
+        stage('Slack Notification') {
             steps {
-                sh 'chmod +x ./gradlew'
-                sh "chmod +x gradlew; ./gradlew test"
+                slackSend (channel: '#jenkins', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
             }
         }
         stage('Gradle Build ') {
@@ -18,7 +17,7 @@ pipeline {
                 sh './gradlew clean build'
             }
         }
-        stage('Publish test results') {
+        stage('Junit Test') {
             steps {
                 junit '**/build/test-results/test/*.xml'
             }
