@@ -11,13 +11,19 @@ pipeline {
                 slackSend (channel: '#jenkins', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
             }
         }
+        stage('Gradle Junit Test') {
+            steps {
+                sh 'chmod +x ./gradlew'
+                sh "chmod +x gradlew; ./gradlew test"
+            }
+        }
         stage('Gradle Build ') {
             steps {
                 sh 'chmod +x ./gradlew'
                 sh './gradlew clean build'
             }
         }
-        stage('Junit Test') {
+        stage('Publish Test Result') {
             steps {
                 junit '**/build/test-results/test/*.xml'
             }
