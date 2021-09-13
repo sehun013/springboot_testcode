@@ -22,15 +22,15 @@ pipeline {
                 junit '**/build/test-results/test/*.xml'
             }
         } 
-       stage('SonarQube analysis') {
-            steps {
-                script {
-                    withSonarQubeEnv() {
-                        sh "./gradlew sonarqube"
-                    }
-                }
-            }
-       }
+//       stage('SonarQube analysis') {
+//            steps {
+//                script {
+//                    withSonarQubeEnv() {
+//                        sh "./gradlew sonarqube"
+//                    }
+//                }
+//            }
+//       }
         stage('Push image') {
             steps {
                 script {
