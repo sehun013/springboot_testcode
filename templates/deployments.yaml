@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: test
-          image: fivebird/test
+          image: fivebird/test:latest
           ports:
             - containerPort: 80
