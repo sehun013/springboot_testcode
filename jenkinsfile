@@ -43,7 +43,7 @@ pipeline {
                     checkout scm
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                         def customImage = docker.build("fivebird/test")
-                        customImage.push("${env.BUILD_ID}")
+                        customImage.push("latest")
                     }
                 }
             }
