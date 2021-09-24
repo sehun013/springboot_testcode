@@ -1,0 +1,62 @@
+pipeline {
+        agent any
+        stages {
+            stage('Git Progress') {
+            steps {
+                git  branch: 'main', credentialsId: 'github_cred', url: 'https://github.com/sehun013/springboot_testcode.git'
+            }
+        }
+stage('Slack Notification') {
+                steps {
+                    slackSend (channel: '#jenkins', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                }
+            }
+stage('Gradle Junit Test') {
+            steps {
+                sh 'chmod +x ./gradlew'
+                sh "chmod +x gradlew; ./gradlew test"
+            }
+        }
+        stage('Gradle Build ') {
+            steps {
+                sh 'chmod +x ./gradlew'
+                sh './gradlew clean build'
+            }
+        }
+        stage('Publish Test Result') {
+            steps {
+                junit '**/build/test-results/test/*.xml'
+            }
+        }
+stage('SonarQube analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv() {
+                        sh "./gradlew sonarqube"
+                    }
+                }
+            }
+       }
+stage('Push image') {
+            steps {
+                script {
+                    checkout scm
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_cred') {
+                        def customImage = docker.build("fivebird/test")
+                        customImage.push("latest")
+                    }
+                }
+            }
+        }
+stage('ArgoCD Deploy') {
+            steps {
+                script {
+                    sshagent (credentials: ['argocd']) {
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@54.180.113.103 argocd repo add https://github.com/sehun013/springboot_testcode.git"
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@54.180.113.103 argocd app create test --repo https://github.com/sehun013/springboot_testcode.git --sync-policy automated --path templates --dest-server https://kubernetes.default.svc --dest-namespace default"
+                    }
+                }
+            }
+        }
+        }
+    }
