@@ -1,0 +1,36 @@
+pipeline {
+        agent any
+        stages {
+            stage('Git Progress') {
+            steps {
+                git  branch: 'main', credentialsId: 'github_cred', url: 'https://github.com/sehun013/springboot_testcode.git'
+            }
+        }
+	stage('Gradle Junit Test') {
+            steps {
+                sh 'chmod +x ./gradlew'
+                sh "chmod +x gradlew; ./gradlew test"
+            }
+        }
+        stage('Gradle Build ') {
+            steps {
+                sh 'chmod +x ./gradlew'
+                sh './gradlew clean build'
+            }
+        }
+        stage('Publish Test Result') {
+            steps {
+                junit '**/build/test-results/test/*.xml'
+            }
+        }
+	stage('SonarQube analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv() {
+                        sh "./gradlew sonarqube"
+                    }
+                }
+            }
+       }
+        }
+    }
