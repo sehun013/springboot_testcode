@@ -1,0 +1,82 @@
+pipeline {
+        agent any
+        stages {
+            stage('Git Progress') {
+            steps {
+                git  branch: 'main', credentialsId: 'github_cred', url: 'https://github.com/sehun013/springboot_testcode.git'
+            }
+        }
+	stage('Slack Notification') {
+                steps {
+                    slackSend (channel: '#jenkins', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                }
+            }
+	stage('Gradle Junit Test') {
+            steps {
+                sh 'chmod +x ./gradlew'
+                sh "chmod +x gradlew; ./gradlew test"
+            }
+        }
+        stage('Gradle Build ') {
+            steps {
+                sh 'chmod +x ./gradlew'
+                sh './gradlew clean build'
+            }
+        }
+        stage('Publish Test Result') {
+            steps {
+                junit '**/build/test-results/test/*.xml'
+            }
+        }
+	stage('SonarQube analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv() {
+                        sh "./gradlew sonarqube"
+                    }
+                }
+            }
+       }
+	
+        stage('OWASP Dependency-Check') {
+            steps {
+                dependencyCheck additionalArguments: '-s "./" -f "XML" -o "./" --prettyPrint', odcInstallation: 'dependency'
+                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+                dependencyCheck additionalArguments: '-s "./" -f "HTML" -o "./" --prettyPrint', odcInstallation: 'dependency'
+            }
+        }
+        
+	stage('Push image') {
+            steps {
+                script {
+                    checkout scm
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_cred') {
+                        def customImage = docker.build("fivebird/test")
+                        customImage.push("latest")
+                    }
+                }
+            }
+        }
+	
+        stage ('Anchore test') {
+            steps {
+                script {
+                    def imageLine = 'fivebird/test'
+                    writeFile file: 'fivebird/test', text: imageLine
+                    anchore name: 'fivebird/test', engineCredentialsId: 'anchore_cred', bailOnFail: false
+                }
+            }
+        }
+        
+	stage('ArgoCD Deploy') {
+            steps {
+                script {
+                    sshagent (credentials: ['argocd']) {
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@52.78.188.170 argocd repo add https://github.com/sehun013/springboot_testcode.git"
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@52.78.188.170 argocd app create test --repo https://github.com/sehun013/springboot_testcode.git --sync-policy automated --path templates --dest-server https://kubernetes.default.svc --dest-namespace default"
+                    }
+                }
+            }
+        }
+        }
+    }
