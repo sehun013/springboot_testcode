@@ -4,7 +4,7 @@ jobs:
       - image: cimg/openjdk:17.0.0
         auth:
           username: fivebird
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+          password: $DOCKER_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
       - run: docker build -t fivebird/circletest .
@@ -13,7 +13,7 @@ jobs:
       - image: cimg/openjdk:17.0.0
         auth:
           username: fivebird
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+          password: $DOCKER_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
       - run: sudo docker push fivebird/circletest:latest
