@@ -1,22 +1,25 @@
-version: 2.1
-
-workflows:
-  my-workflow:
-    jobs:
-      - run-tests:
-          context:
-            - org-global
-            - my-context
-
 jobs:
-  run-tests:
+  build:
     docker:
-      - image: cimg/base:2020.01
+      - image: cimg/openjdk:17.0.0
         auth:
-          username: mydockerhub-user
+          username: fivebird
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
-      - run:
-          name: "echo environment variables from org-global context"
-          command: echo $MY_ENV_VAR
+      - run: docker build -t fivebird/circleTest .
+  push:
+    docker:
+      - image: cimg/openjdk:17.0.0
+        auth:
+          username: fivebird
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    steps:
+      - checkout
+      - run: sudo docker push fivebird/circleTest:latest
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - push
