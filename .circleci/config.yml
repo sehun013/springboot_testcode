@@ -46,7 +46,7 @@ jobs:
       - run: gradle test
       
 
-  build: # runs not using Workflows must have a `build` job as entry point
+  snyk: # runs not using Workflows must have a `build` job as entry point
     working_directory: ~/repo # directory where steps will run
     docker: # run the steps with Docker
       - image: circleci/node # ...with this image as the primary container; this is where all `steps` will run
