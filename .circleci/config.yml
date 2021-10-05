@@ -75,3 +75,5 @@ workflows:
     jobs:
       - build
       - test
+          context:
+            - env
