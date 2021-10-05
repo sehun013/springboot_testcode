@@ -66,3 +66,9 @@ jobs:
       - run: # run snyk test - run snyk test
           name: snyk test
           command: snyk test
+          
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test
