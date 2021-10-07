@@ -7,10 +7,10 @@ YAML (Just put the tools you need in the yaml file.)
 ![image](https://user-images.githubusercontent.com/50852749/136325068-b301114f-1e6e-4fcc-81b6-0a5b09fbfec7.png)
 
 Add jenkins data in your jenkins yaml!
-　
-　
-　
-　
+<br/>
+<br/>
+<br/>
+<br/>
 ### 2. github yaml data (Required) (gitlab and bitbucket will be added.)
 
 Get Github Personal Access Token
@@ -26,10 +26,10 @@ Get Github Personal Access Token
 ![image](https://user-images.githubusercontent.com/50852749/136324804-4bb913d8-2f33-4d67-976b-e2f12d590c8b.png)
 
 Add token and others in your gihub yaml!
-　
-　
-　
-　 
+<br/>
+<br/>
+<br/>
+<br/>
 ### 3. slack yaml data (optional)
 
 Get Slack subdomain, channel, token
