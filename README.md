@@ -6,7 +6,7 @@ YAML (Just put the tools you need in the yaml file.)
 
 ![image](https://user-images.githubusercontent.com/50852749/136325068-b301114f-1e6e-4fcc-81b6-0a5b09fbfec7.png)
 
-Add jenkins data in your jenkins yaml!
+Add jenkins data in your data.yaml!
 <br/>
 <br/>
 <br/>
@@ -25,7 +25,7 @@ Get Github Personal Access Token
 
 ![image](https://user-images.githubusercontent.com/50852749/136324804-4bb913d8-2f33-4d67-976b-e2f12d590c8b.png)
 
-Add token and others in your gihub yaml!
+Add token and others in your data.yaml!
 <br/>
 <br/>
 <br/>
@@ -46,7 +46,7 @@ Get the subdomain and token data
 
 ![image](https://user-images.githubusercontent.com/50852749/136326349-508ec9bd-d9e3-4628-a888-4c578c45bb48.png)
 
-Add Slack data in your slack yaml!
+Add Slack data in your data.yaml!
 <br/>
 <br/>
 <br/>
@@ -61,6 +61,12 @@ Go to your sonarqube web ui
 ![image](https://user-images.githubusercontent.com/50852749/136327618-3dcfba00-2b58-44e4-91c1-8f513af10d39.png)
 Get the sonarqube token here
 
-![image](https://user-images.githubusercontent.com/50852749/136327759-16538c8f-1aa7-45f5-9780-f4454db06521.png)
+![image](https://user-images.githubusercontent.com/50852749/136327759-16538c8f-1aa7-45f5-9780-f4454db06521.png)  
 
-Add Sonarqube token in your sonarqube yaml!
+Add Sonarqube token in your data.yaml!
+<br/>
+<br/>
+<br/>
+
+
+
