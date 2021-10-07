@@ -73,12 +73,27 @@ Get the sonarqube token here
 
 Add Sonarqube token in your data.yaml!
 
-##### Caution
+#### Caution
 If you want to use gradle and sonacube together, add the following content to your build.gradle file.  
 ![image](https://user-images.githubusercontent.com/50852749/136328600-4def5149-9807-49b4-9c38-b2e793c8c236.png)
 <br/>
 <br/>
 <br/>
 
+### 5. OAWSP dependency check yaml data (optional)
+![image](https://user-images.githubusercontent.com/50852749/136330882-d5ced98e-06e1-4904-a283-63dc41ca722d.png)
+Just put dependency check tool in data.yaml like this.
+<br/>
+<br/>
+<br/>
 
+### 6. Dockerhub yaml data (optional)
+![image](https://user-images.githubusercontent.com/50852749/136331133-e47208ba-1612-41ae-a202-721d41df7315.png)  
+Sign up dockerhub! and get the username and password 
+<br/>
+![image](https://user-images.githubusercontent.com/50852749/136331017-17518348-b850-49db-816a-40730beddb80.png)  
+Add build image name ex) username/imagename
+<br/>
+<br/>
+<br/>
 
