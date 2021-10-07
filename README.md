@@ -106,9 +106,9 @@ Look at the previous installation process, install it, and add data in data.yaml
 <br/>
 
 ### 8. Argocd yaml data (optional, If used, dockerhub is required)
-![image](https://user-images.githubusercontent.com/50852749/136331735-85691822-c31b-41e0-9025-61752afd8226.png)
-Look at the previous installation process, install it, and add data in data.yaml
-It is the url of the master node where argocd is installed.
+![image](https://user-images.githubusercontent.com/50852749/136331735-85691822-c31b-41e0-9025-61752afd8226.png)  
+Look at the previous installation process, install it, and add data in data.yaml  
+It is the url of the master node where argocd is installed.  
 <br/>
 <br/>
 <br/>
