@@ -2,7 +2,14 @@
 
 yaml
 =============
-### 1. github yaml data
+### 1. jenkins yaml data
+
+![image](https://user-images.githubusercontent.com/50852749/136325068-b301114f-1e6e-4fcc-81b6-0a5b09fbfec7.png)
+
+Add jenkins data in your jenkins yaml!
+-------------
+
+### 2. github yaml data
 
 Get Github Personal Access Token
 
@@ -16,4 +23,5 @@ Get Github Personal Access Token
 
 ![image](https://user-images.githubusercontent.com/50852749/136324804-4bb913d8-2f33-4d67-976b-e2f12d590c8b.png)
 
-Add token in your gihub yaml!
+Add token and others in your gihub yaml!
+-------------
