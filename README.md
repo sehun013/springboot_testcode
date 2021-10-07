@@ -58,7 +58,7 @@ Get sonarqube token
 ![image](https://user-images.githubusercontent.com/50852749/136327552-1cd82e30-8b26-4354-ba32-5a2c3d9b09cd.png)
 Go to your sonarqube web ui
 
-![image](https://user-images.githubusercontent.com/50852749/136327618-3dcfba00-2b58-44e4-91c1-8f513af10d39.png)
+![image](https://user-images.githubusercontent.com/50852749/136327618-3dcfba00-2b58-44e4-91c1-8f513af10d39.png)  
 Get the sonarqube token here
 
 ![image](https://user-images.githubusercontent.com/50852749/136327759-16538c8f-1aa7-45f5-9780-f4454db06521.png)  
