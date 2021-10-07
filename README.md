@@ -51,6 +51,14 @@ Add Slack data in your data.yaml!
 <br/>
 <br/>
 
+### 3. gradle yaml data (optional)
+
+![image](https://user-images.githubusercontent.com/50852749/136328195-0b60e2d7-5b60-4d96-9ed1-c83b7e71483d.png)  
+Just put gradle tool in data.yaml like this.
+<br/>
+<br/>
+<br/>
+
 ### 4. sonarqube yaml data (optional)
 
 Get sonarqube token
@@ -64,6 +72,10 @@ Get the sonarqube token here
 ![image](https://user-images.githubusercontent.com/50852749/136327759-16538c8f-1aa7-45f5-9780-f4454db06521.png)  
 
 Add Sonarqube token in your data.yaml!
+
+##### Caution
+If you want to use gradle and sonacube together, add the following content to your build.gradle file.  
+![image](https://user-images.githubusercontent.com/50852749/136328600-4def5149-9807-49b4-9c38-b2e793c8c236.png)
 <br/>
 <br/>
 <br/>
