@@ -7,7 +7,7 @@ yaml
 ![image](https://user-images.githubusercontent.com/50852749/136325068-b301114f-1e6e-4fcc-81b6-0a5b09fbfec7.png)
 
 Add jenkins data in your jenkins yaml!
--------------
+
 
 ### 2. github yaml data
 
