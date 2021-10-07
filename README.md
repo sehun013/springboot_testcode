@@ -91,8 +91,24 @@ Just put dependency check tool in data.yaml like this.
 ![image](https://user-images.githubusercontent.com/50852749/136331133-e47208ba-1612-41ae-a202-721d41df7315.png)  
 Sign up dockerhub! and get the username and password 
 <br/>
+<br/>
 ![image](https://user-images.githubusercontent.com/50852749/136331017-17518348-b850-49db-816a-40730beddb80.png)  
 Add build image name ex) username/imagename
+<br/>
+<br/>
+<br/>
+
+### 7. Anchore yaml data (optional, If used, dockerhub is required)
+![image](https://user-images.githubusercontent.com/50852749/136331535-def1a71a-8b36-441a-a178-6c30f0885cd0.png)  
+Look at the previous installation process, install it, and add data in data.yaml
+<br/>
+<br/>
+<br/>
+
+### 8. Argocd yaml data (optional, If used, dockerhub is required)
+![image](https://user-images.githubusercontent.com/50852749/136331735-85691822-c31b-41e0-9025-61752afd8226.png)
+Look at the previous installation process, install it, and add data in data.yaml
+It is the url of the master node where argocd is installed.
 <br/>
 <br/>
 <br/>
