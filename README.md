@@ -10,7 +10,7 @@ Add jenkins data in your jenkins yaml!
 <br/>
 <br/>
 <br/>
-<br/>
+
 ### 2. github yaml data (Required) (gitlab and bitbucket will be added.)
 
 Get Github Personal Access Token
@@ -29,7 +29,7 @@ Add token and others in your gihub yaml!
 <br/>
 <br/>
 <br/>
-<br/>
+
 ### 3. slack yaml data (optional)
 
 Get Slack subdomain, channel, token
@@ -46,4 +46,21 @@ Get the subdomain and token data
 
 ![image](https://user-images.githubusercontent.com/50852749/136326349-508ec9bd-d9e3-4628-a888-4c578c45bb48.png)
 
-Add Slack data in your jenkins yaml!
+Add Slack data in your slack yaml!
+<br/>
+<br/>
+<br/>
+
+### 4. sonarqube yaml data (optional)
+
+Get sonarqube token
+
+![image](https://user-images.githubusercontent.com/50852749/136327552-1cd82e30-8b26-4354-ba32-5a2c3d9b09cd.png)
+Go to your sonarqube web ui
+
+![image](https://user-images.githubusercontent.com/50852749/136327618-3dcfba00-2b58-44e4-91c1-8f513af10d39.png)
+Get the sonarqube token here
+
+![image](https://user-images.githubusercontent.com/50852749/136327759-16538c8f-1aa7-45f5-9780-f4454db06521.png)
+
+Add Sonarqube token in your sonarqube yaml!
