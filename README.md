@@ -114,13 +114,14 @@ It is the url of the master node where argocd is installed.
 <br/>
 
 ### 9. Arachni yaml data (optional, If used, Argocd is required)
-![image](https://user-images.githubusercontent.com/50852749/136940345-fed81d88-2f2f-4ada-ae3c-deb2e4574976.png)
+![image](https://user-images.githubusercontent.com/50852749/136940345-fed81d88-2f2f-4ada-ae3c-deb2e4574976.png)  
 Enter the url of the node deployed in argocd.  
 <br>
 If there is no url deployed yet, leave it as an empty value, and add the deployed node url to jenkinsfile later.  
 like this
 <br>
 ![image](https://user-images.githubusercontent.com/50852749/136940780-40e6e62d-dca0-47c4-a182-d964f8e44275.png)
+![image](https://user-images.githubusercontent.com/50852749/136941160-156d28ab-6863-46a2-9b03-111659399ca5.png)
 <br>
 <br/>
 <br/>
