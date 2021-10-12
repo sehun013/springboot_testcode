@@ -83,7 +83,7 @@ pipeline {
             steps {
                 script {
                     sshagent (credentials: ['argocd']) {
-                            sh "ssh -o StrictHostKeyChecking=no ec2-user@3.37.130.149 /home/ec2-user/arachni-1.5.1-0.5.12/bin/arachni {Add the deployed node URL here} --report-save-path=arachni.afr"
+                            sh "ssh -o StrictHostKeyChecking=no ec2-user@3.37.130.149 /home/ec2-user/arachni-1.5.1-0.5.12/bin/arachni http://a490d07772b044ad1b991fb41a64c1ed-1020274701.ap-northeast-2.elb.amazonaws.com/ --report-save-path=arachni.afr"
                             sh "ssh -o StrictHostKeyChecking=no ec2-user@3.37.130.149 /home/ec2-user/arachni-1.5.1-0.5.12/bin/arachni_reporter arachni.afr --reporter=json:outfile=arachni.json.zip"
                     }
                 }
